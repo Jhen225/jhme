@@ -1,0 +1,45 @@
+#work{
+  display: flex;
+  flex-direction: column;
+  padding:0;
+  overflow: auto;
+  width: 100%;
+}
+
+.row{
+  flex: 1;
+  display:flex;
+  flex-direction: row;
+  
+}
+.work-item{
+  flex: 1;
+  display:flex;
+  background-color:#555;
+  transition: 1s;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  color: darkgoldenrod;
+}
+
+
+
+.item-overlay{
+  display:block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+  color: darkgoldenrod;
+  transition: 1s;
+  opacity: 0;
+  
+}
+
+.work-item:hover .item-overlay{
+  opacity: 1;
+}

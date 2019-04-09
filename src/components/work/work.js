@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { WorkItem } from '../../animations';
 
 function Work (props) {
 
     const projects = props.projects.map((project,i)=>{
            return(
-                <a key={i} className="work-item" href="#">
+                <WorkItem pose={"open"} key={i} className="work-item">
+                
                     <img className="work-img" alt={project.name} src={"/images/projects/"+project.thumbnail}></img>
                     <div className="item-overlay">
                         <div>
@@ -12,7 +14,7 @@ function Work (props) {
                             <p className="project-description">{project.description}</p>
                         </div>
                     </div>
-                </a>
+                </WorkItem>
            );
         });
         return(

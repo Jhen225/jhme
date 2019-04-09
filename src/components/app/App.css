@@ -50,7 +50,7 @@ footer{
 .main-content{
   margin-left: 0px;
   overflow: auto;
-  background-color: rgb(70, 70, 70);
+  background-color: rgb(54,65,86);
   position: relative;
 }
 
@@ -306,6 +306,8 @@ footer{
 
 .landing-nav-item .border{
   background-color: transparent;
+  position: absolute;
+  left: 0;
 }
 
 .landing-nav-item .border-color{
@@ -416,8 +418,9 @@ footer{
   position: fixed;
   left: 0;
   top: 0;
-  width: 0px;
-  background-color: rgb(197, 98, 17);
+  width: 400px;
+  background-color: rgb(122,158,159);
+  color: white;
   height: 100vh;
   padding: 3rem;
 }
@@ -426,9 +429,10 @@ footer{
   position: fixed;
   right: 0;
   top: 0;
+  color: white;
   width: 700px;
   max-height: 100%;
-  background-color: rgb(197, 98, 17);
+  background-color: rgb(122,158,159);
 }
 
 .back-button{
@@ -491,12 +495,15 @@ footer{
   height: 35px;
   padding-left: 10px;
   line-height: 35px; 
+  width: 100%;
   margin-bottom: 10px;
 }
 
 #contact-form textarea {
   height: 150px;
   resize: none;
+  width: 100%;
+
 }
 
 .close {

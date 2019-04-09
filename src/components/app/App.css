@@ -1,5 +1,11 @@
 /*svg fill color background-color: rgba(184,134,11,.3);*/
 
+:root {
+  --primary-color: rgb(54,65,86);
+  --secondary-color: rgb(122,158,159);
+  --accent-color: #f8f32b;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -40,7 +46,7 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
-  color: darkgoldenrod;
+  color: var(--secondary-color);
 }
 
 .wrapper{
@@ -50,7 +56,7 @@ footer{
 .main-content{
   margin-left: 0px;
   overflow: auto;
-  background-color: rgb(54,65,86);
+  background-color: var(--primary-color);
   position: relative;
 }
 
@@ -68,7 +74,7 @@ footer{
 .menuBar{
   height:3px;
   margin:5px 0;
-  background-color: darkgoldenrod;
+  background-color: var(--secondary-color);
   transition: 1s;
 }
 
@@ -139,7 +145,6 @@ footer{
   background-color: #888;
   bottom:0;
   right: 0;
-  transition: 1s;
 }
 
 
@@ -153,11 +158,11 @@ footer{
 
 
 .active-nav-item{
-  color: darkgoldenrod !important;
+  color: var(--secondary-color) !important;
 }
 
 .active-nav-item > .border{
-  background-color:darkgoldenrod !important;
+  background-color:var(--secondary-color) !important;
 }
 
 .border-color{
@@ -165,7 +170,6 @@ footer{
   height: 100%;
   background-color:white;
   float: right;
-  transition: 1s ease;
   
 }
 
@@ -258,20 +262,23 @@ footer{
 }
   
 .landing-title{
-  font-size: 250%;
+  font-size: 3rem;
+  letter-spacing: 10px;
   margin: 0;
 }
 
 .landing-tagline{
-  font-size: 150%;
-  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: 15px;
+  margin: 3rem 0 0 0;
+  color: var(--accent-color);
 }
 
 .landing-calltoaction{
   width: 150px;
   text-align: center;
-  border: 2px solid darkgoldenrod;
-  color: darkgoldenrod;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
   text-decoration: none;
   /* border-radius: 5px; */
   cursor: pointer;
@@ -282,7 +289,7 @@ footer{
 }
 
 .landing-calltoaction:hover{
-  background-color: darkgoldenrod;
+  background-color: var(--secondary-color);
   color:white;
 }
 
@@ -301,7 +308,7 @@ footer{
   color: white;
   cursor: pointer;
   position: relative;
-  transition: 1s;
+  font-size: 1.2rem;
 }
 
 .landing-nav-item .border{
@@ -314,8 +321,8 @@ footer{
   background-color: white;
 }
 
-.landing-nav-item:hover .border-color{
-  width: 100%;
+.landing-nav-item:hover {
+  color: var(--accent-color);
 }
 
 /* .contact-container{
@@ -363,8 +370,8 @@ footer{
   height: 100%;
   top: 0;
   left: 0;
-  background-color: white;
-  color: darkgoldenrod;
+  background-color: var(--secondary-color);
+  color: white;
   transition: 1s;
   opacity: 0;
   justify-content: center;
@@ -394,12 +401,16 @@ footer{
   bottom: 5%;
   right: 4%;
   height: 50px;
-  width: 35px;
-  /*border-radius: 50%;*/
-  background: darkgoldenrod;
+  width: 50px;
+  border-radius: 50%;
+  background: var(--accent-color);
   cursor: pointer;
   opacity: .3;
-  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  color: var(--primary-color);
 }
 
 .back-to-top:hover{
@@ -410,7 +421,7 @@ footer{
 
 .section-header{
   font-size: 1.8em;
-  color:darkgoldenrod;
+  color:var(--secondary-color);
   text-align: right;
 }
 
@@ -418,8 +429,8 @@ footer{
   position: fixed;
   left: 0;
   top: 0;
-  width: 400px;
-  background-color: rgb(122,158,159);
+  width: 40%;
+  background-color: var(--secondary-color);
   color: white;
   height: 100vh;
   padding: 3rem;
@@ -430,31 +441,20 @@ footer{
   right: 0;
   top: 0;
   color: white;
-  width: 700px;
+  width: 40%;
   max-height: 100%;
-  background-color: rgb(122,158,159);
+  background-color: var(--secondary-color);
 }
 
 .back-button{
   cursor: pointer;
-  position: absolute;
-}
-
-.top{
-  top: 5vw;
-}
-
-.left{
-  left: 5vw;
-}
-
-
-.right{
-  right: 5vw;
+  position: relative;
 }
 
 .about-container{
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .about-text{
@@ -479,7 +479,7 @@ footer{
 
 .contact-container {
   width: 100%;
-  position: relative;
+  /* position: relative; */
   height: 100%;
   display: flex;
   align-items: center;
@@ -511,7 +511,9 @@ footer{
   border: none;
   cursor: pointer;
   position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 1.2rem;
+  top: 3rem;
+  left: 3rem;
+  font-size: 1.6rem;
+  color: var(--accent-color);
+  opacity: .6;
 }

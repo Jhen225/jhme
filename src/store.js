@@ -5,7 +5,7 @@ const context = React.createContext();
 
 export function Store() {
     const Provider = function ({ children, initialState = {} }) {
-        const [state, dispatch] = useReducer(reducer, { count: 0 });
+        const [state, dispatch] = useReducer(reducer, initialState);
         const contextValue = useMemo(() => [state, dispatch], [state]);
         return (
             <context.Provider value={contextValue}>{children}</context.Provider>
@@ -16,5 +16,4 @@ export function Store() {
         Provider,
         useStore
     };
-
 }

@@ -1,21 +1,43 @@
-import React, { Component } from 'react';
-import { LandingNavItem } from '../../animations';
+import React, { Component } from "react";
+import { LandingNavItem } from "../../animations";
 
-const Nav = (props) => {
-
-    let {
-        openContact,
-        openAbout,
-        scrollWork
-    } = props;
-
-    return(
-        <div className="landing-nav">
-          <a id="contact-tag" className="landing-nav-item" onClick={openContact}>Get in Touch <span className="border"><div className="border-color"></div></span></a>
-          <a id="work-tag" className="landing-nav-item" onClick={scrollWork}>Work<span className="border"><div className="border-color"></div></span></a>
-          <a id="about-tag" className="landing-nav-item" onClick={openAbout}>About<span className="border"><div className="border-color"></div></span></a>
-        </div>  
-    );
-}
+const Nav = props => {
+  let { openContact, openAbout, scrollWork } = props;
+  return (
+    <div className="landing-nav">
+      <LandingNavItem
+        pose="enter"
+        id="contact-tag"
+        className="landing-nav-item"
+        onClick={openContact}
+      >
+        Get in Touch
+        {/* <span className="border">
+          <div className="border-color" />
+        </span> */}
+      </LandingNavItem>
+      <LandingNavItem
+        id="work-tag"
+        className="landing-nav-item"
+        onClick={scrollWork}
+      >
+        Work
+        {/* <span className="border">
+          <div className="border-color" />
+        </span> */}
+      </LandingNavItem>
+      <LandingNavItem
+        id="about-tag"
+        className="landing-nav-item"
+        onClick={openAbout}
+      >
+        About
+        {/* <span className="border">
+          <div className="border-color" />
+        </span> */}
+      </LandingNavItem>
+    </div>
+  );
+};
 
 export default Nav;

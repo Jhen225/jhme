@@ -1,98 +1,129 @@
-import React, { Component } from 'react';
-import './contact.css';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { HiddenLeft, InputContainer, CloseButton, SubmitButton } from "../../animations";
+import axios from "axios";
+import "./contact.css";
 
-class Contact extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-        
-            emailName: '',
-            emailAddress: '',
-            emailMessage: '',
-            submitAlert:false
-        
-        }
+function Contact(props) {
+  let { toggle, open } = props;
 
+  let [name, setName] = useState("");
+  let [email, setEmail] = useState("");
+  let [subject, setSubject] = useState("");
+  let [message, setMessage] = useState("");
+
+  useEffect(() => {
+    console.log(name);
+  }, [name]);
+
+  useEffect(() => {
+    console.log(email);
+  }, [email]);
+
+  useEffect(() => {
+    console.log(subject);
+  }, [subject]);
+
+  useEffect(() => {
+    console.log(message);
+  }, [message]);
+
+  const handleChange = e => {
+    switch (e.target.name) {
+      case "name":
+        setName(e.target.value);
+        break;
+      case "email":
+        setEmail(e.target.value);
+        break;
+      case "subject":
+        setSubject(e.target.value);
+        break;
+      case "message":
+        setMessage(e.target.value);
+        break;
+      default:
+        break;
     }
+    return;
+  };
 
-  handleChange(event){
-    var targetName = event.target.name;
-    var value = event.target.value;
+  const resetState = () => {
+    setName("");
+    setEmail("");
+    setSubject("");
+    setMessage("");
+  };
 
-    if(targetName === "contactName"){
-      this.setState({emailName: value})
-    }
-    else if(targetName === "contactAddress"){
-      this.setState({emailAddress: value})
-    }
-    else if(targetName === "contactMessage"){
-      this.setState({emailMessage: value})
-    }
-  }
-
-  submitContact(event){
-    var ename = this.state.emailName;
-    var eaddress = this.state.emailAddress;
-    var emessage = this.state.emailMessage;
+  const submitContact = event => {
+    let ename = name;
+    let eaddress = email;
+    let esubject = subject;
+    let emessage = message;
     event.preventDefault();
 
-    if(ename !== null && eaddress !== null && emessage != null){
-      axios.post('/email',{
+    if (ename !== null && eaddress !== null && emessage != null) {
+      console.log({
         name: ename,
         address: eaddress,
+        subject: esubject,
         message: emessage
-      })
-      .then((response)=>{
-        this.setState({
-          emailName: '',
-          emailAddress: '',
-          emailMessage: ''
-        });
-      })
-      .catch((error) => console.log(error.message));
-    } else{
-      this.setState({submitAlert:true});
+      });
+      // axios
+      //   .post("/email", {
+      //     name: ename,
+      //     address: eaddress,
+      //     subject: esubject,
+      //     message: emessage
+      //   })
+      //   .then(response => {
+      //     resetState();
+      //   })
+      //   .catch(error => console.log(error.message));
+      resetState();
+    } else {
+      this.setState({ submitAlert: true });
     }
-  }
+  };
 
-    render(){
-        return(
-            <section id="contact">
-              <a className="back-button back-button-left top right">Back {/*<span><img src="" alt="r-arr"/></span>*/}</a>
-
-              <div className="contact-container">
-                <div className="form-container">
-                  <form className="contact-form" onSubmit={this.submitContact.bind(this)}>
-                      <div className="form-top-row">
-                        <div className="form-half-container">
-                            <label>Name:</label>
-                            <input className="email-name" type="text" name="contactName" placeholder="Name" onChange={this.handleChange.bind(this)}></input>
-                        </div>
-
-                        <div className="form-half-container">
-                            <label className="label-email">Email:</label><br />
-                            <input className="email-address" type="text" name="contactAddress" placeholder="Email" onChange={this.handleChange.bind(this)}></input>
-                        </div>
-                      </div>
-
-                      <div className="form-bottom-row">
-                        <label>Message:</label><br/>
-                        <textarea className="email-message" type="text" name="contactMessage" placeholder="Message" onChange={this.handleChange.bind(this)}></textarea><br/>
-                        <input className="email-submit" type="submit" value="Submit"/>
-                      </div>
-                  </form>
-                </div>
-
-                <div className="contact-info-container">
-                  <div className="">
-                      <a className="contact-email-link" href="mailto:jhen103093@gmail.com">jhen103093@gmail.com</a>
-                  </div>
-                </div>
-              </div>
-            </section>
-        );
-    }
+  return (
+    <HiddenLeft className="hidden-left" pose={open ? "open" : "closed"}>
+      <div className="contact-container">
+        <CloseButton className="back-button-left close" onClick={toggle}>
+          <i className="fa fa-times" />
+        </CloseButton>
+        <form id="contact-form" action="" onSubmit={submitContact}>
+          <InputContainer>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              onChange={handleChange}
+            />
+          </InputContainer>
+          <InputContainer>
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              onChange={handleChange}
+            />
+          </InputContainer>
+          <InputContainer>
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              onChange={handleChange}
+            />
+          </InputContainer>
+          <InputContainer>
+            <textarea name="message" id="message" onChange={handleChange} />
+          </InputContainer>
+          <SubmitButton type="submit">Submit</SubmitButton>
+        </form>
+      </div>
+    </HiddenLeft>
+  );
 }
 
 export default Contact;

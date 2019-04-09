@@ -71,27 +71,38 @@ module.exports = {
                 {
                     "name":"Project 1",
                     "description":'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere voluptates corrupti, fugit, alias repellat ratione expedita odit aliquam dolorem amet libero eveniet quisquam ducimus sequi ad officia pariatur molestias in.',
-                    "thumbnail":"proj1.jpg"
+                    "thumbnail":"proj1.jpg",
+                    "technologies": ["React"]
                 },
                 {
                     "name":"Project 2",
                     "description":'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere voluptates corrupti, fugit, alias repellat ratione expedita odit aliquam dolorem amet libero eveniet quisquam ducimus sequi ad officia pariatur molestias in.',
-                    "thumbnail":"proj1.jpg"
+                    "thumbnail":"proj1.jpg",
+                    "technologies": ["React", "NodeJS", "PostgreSQL"]
                 },
                 {
                     "name":"Project 3",
                     "description":'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere voluptates corrupti, fugit, alias repellat ratione expedita odit aliquam dolorem amet libero eveniet quisquam ducimus sequi ad officia pariatur molestias in.',
-                    "thumbnail":"proj1.jpg"
+                    "thumbnail":"proj1.jpg",
+                    "technologies": ["ExpressJS", "React", "NodeJS", "PostgreSQL"]
                 },
                 {
                     "name":"Project 4",
                     "description":'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere voluptates corrupti, fugit, alias repellat ratione expedita odit aliquam dolorem amet libero eveniet quisquam ducimus sequi ad officia pariatur molestias in.',
-                    "thumbnail":"proj1.jpg"
+                    "thumbnail":"proj1.jpg",
+                    "technologies": ["Javascript", "CSS", "Html", "Django", "PostgreSQL"]
                 },
                 {
                     "name":"Project 5",
                     "description":'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere voluptates corrupti, fugit, alias repellat ratione expedita odit aliquam dolorem amet libero eveniet quisquam ducimus sequi ad officia pariatur molestias in.',
-                    "thumbnail":"proj1.jpg"
+                    "thumbnail":"proj1.jpg",
+                    "technologies": ["Android", "Java", "NodeJS", "ExpressJS", "MongoDB"]
+                },
+                {
+                    "name":"Project 6",
+                    "description":'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere voluptates corrupti, fugit, alias repellat ratione expedita odit aliquam dolorem amet libero eveniet quisquam ducimus sequi ad officia pariatur molestias in.',
+                    "thumbnail":"proj1.jpg",
+                    "technologies": ["Python", "Javascript", "Electron", "PostgreSQL"]
                 }
             ]
         },

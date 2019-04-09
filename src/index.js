@@ -11,11 +11,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/App';
-
+import { initialState } from './state/initialState';
 import store from './state';
 
 
 ReactDOM.render(
-    <store.Provider initialState={{}}>
+    <store.Provider initialState={initialState}>
         <App />
     </store.Provider>, document.getElementById('root'));

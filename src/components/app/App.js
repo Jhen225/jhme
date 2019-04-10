@@ -1,33 +1,13 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import _site from "../../config/config.js";
 import Nav from "../nav/nav";
 import Work from "../work/work";
 import About from "../about/about";
 import Contact from "../contact/contact";
 import Footer from "../footer/footer";
-import Store from "../../state/index";
-import posed from 'react-pose';
+import Store from "../../state";
+import axios from 'axios'
 import "./App.css";
-
-
-const BackToTop = posed.a({
-  hoverable: true,
-  init: {
-    scale: .8,
-    rotate: 0,
-    transition: {
-      duration: 200
-    }
-  },
-  hover: {
-    scale: 1.3,
-    rotate: 360,
-    transition: {
-      duration: 200
-    }
-  }
-})
-
 
 function App() {
   //State
@@ -97,10 +77,27 @@ function App() {
 
   //Effects
 
-  useEffect(() => {
+  useEffect( async () => {
     scrollToTop(false);
+    window.addEventListener('scroll', onScroll);
+    // axios.put('http://192.168.1.9:4000/projects/1', {test: '123'})
+    // .then(res => res.data)
+    // .then(data => console.log(data))
+    // .catch(err=> console.log(err));
+    // try {
+    //   let config = {
+
+    //   }
+    //   let res = await axios.post('http://localhost:4000/auth/', {test: '123'})
+    //   console.log(res);
+    // } catch(err) {
+    //   console.log(err)
+    // }
   }, []);
 
+  const onScroll = (e) => {
+    console.log(window.scrollY);
+  }
 
   return (
     <div className="wrapper">
@@ -116,10 +113,7 @@ function App() {
             openAbout={toggleAbout}
           />
         </section>
-
-        <Work projects={_site.site_info.portfolio.projects} />
-
-        <BackToTop className="back-to-top" onClick={() => scrollToTop()}><i className="fa fa-chevron-up"></i></BackToTop>
+        <Work projects={_site.site_info.portfolio.projects} scroll={scrollToTop} />
         <Footer />
       </div>
 

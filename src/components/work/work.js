@@ -1,7 +1,12 @@
 import React from "react";
-import { WorkItem } from "../../animations";
+import { WorkItem, BackToTop } from "../../animations";
 
 function Work(props) {
+
+  let {
+    scroll, 
+  } = props;
+
   const projects = props.projects.map((project, i) => {
     return (
       <WorkItem pose={"open"} key={i} className="work-item">
@@ -27,6 +32,7 @@ function Work(props) {
       ) : (
         <p style={{ color: "white" }}>Loading...</p>
       )}
+        <BackToTop className="back-to-top" onClick={scroll}><i className="fa fa-chevron-up"></i></BackToTop>
     </section>
   );
 }

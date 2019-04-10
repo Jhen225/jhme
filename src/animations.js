@@ -48,15 +48,21 @@ export const InputContainer = posed.div({
 
 export const LandingNavItem = posed.a({
   hoverable: true,
-  init: { opacity: .7, scale: 1 },
-  hover: { opacity: 1, scale: 1.3 },
+  init: { opacity: .7, scale: 1, letterSpacing: '0px' },
+  hover: { opacity: 1, scale: 1.3, letterSpacing: '5px' },
   enter: {
     opacity: .7,
-    y: 0
+    y: 0,
+    transition: {
+      duration: 600
+    }
   },
   exit: {
     opacity: 0,
-    y: 20
+    y: 20,
+    transition: {
+      duration: 600
+    }
   }
 });
 
@@ -75,3 +81,21 @@ export const CloseButton = posed.div({
   init: {scale: 1, rotate: 0, opacity: .6},
   hover: {scale: 1.1, rotate: 360, opacity: 1}
 })
+
+export const BackToTop = posed.a({
+  hoverable: true,
+  init: {
+    scale: .8,
+    rotate: 0,
+    transition: {
+      duration: 200
+    }
+  },
+  hover: {
+    scale: 1.3,
+    rotate: 360,
+    transition: {
+      duration: 200
+    }
+  }
+});

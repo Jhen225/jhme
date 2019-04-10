@@ -1,12 +1,16 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { LandingNavItem } from "../../animations";
 
 const Nav = props => {
   let { openContact, openAbout, scrollWork } = props;
+  let [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(false)
+  }, [])
   return (
     <div className="landing-nav">
       <LandingNavItem
-        pose="enter"
+        pose={loading ? "exit" : "enter"}
         id="contact-tag"
         className="landing-nav-item"
         onClick={openContact}
@@ -18,6 +22,7 @@ const Nav = props => {
       </LandingNavItem>
       <LandingNavItem
         id="work-tag"
+        pose={loading ? "exit" : "enter"}
         className="landing-nav-item"
         onClick={scrollWork}
       >
@@ -28,6 +33,7 @@ const Nav = props => {
       </LandingNavItem>
       <LandingNavItem
         id="about-tag"
+        pose={loading ? "exit" : "enter"}
         className="landing-nav-item"
         onClick={openAbout}
       >

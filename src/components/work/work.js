@@ -7,6 +7,8 @@ function Work(props) {
     scroll, 
   } = props;
 
+
+
   const projects = props.projects.map((project, i) => {
     return (
       <WorkItem pose={"open"} key={i} className="work-item">
@@ -22,6 +24,9 @@ function Work(props) {
           </div>
         </div>
       </WorkItem>
+        // <div className="work-item-tile">
+
+        // </div>
     );
   });
 
@@ -33,6 +38,9 @@ function Work(props) {
         <p style={{ color: "white" }}>Loading...</p>
       )}
         <BackToTop className="back-to-top" onClick={scroll}><i className="fa fa-chevron-up"></i></BackToTop>
+        <div className="work-item-tiles">
+
+        </div>
     </section>
   );
 }

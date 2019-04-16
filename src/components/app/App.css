@@ -7,12 +7,12 @@
 } */
 
 :root {
-  --primary-color: #114b5f;
-  --secondary-color: #1a936f;
+  --primary-color: #696D7D;
+  --secondary-color: #43AA8B/*#114b5f*/;
   --accent-color: #e8bf2e;
   --primary-text-color: white;
+  --secondary-text-color: rgba(138,189,48,1);
   --light-background-color: #a9a9a9;
-
 }
 
 * {
@@ -111,7 +111,7 @@ video {
 body {
   font-size: 16px;
   overflow: hidden;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 section {
@@ -133,7 +133,7 @@ footer {
 
 .main-content {
   margin-left: 0px;
-  overflow: auto;
+  overflow: hidden;
   background-color: var(--primary-color);
   position: relative;
 }
@@ -325,7 +325,38 @@ footer {
   color: white;
   text-align: center;
   background: var(--primary-color);
+  left: 0;
+  top: 0;
   z-index: 10;
+  overflow: hidden;
+  height: 102vh;
+}
+
+#landing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(97,120,224, 0.3); */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 6;
+}
+
+#landing::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(97,120,224, 0.3); */
+  background-image: url("/images/hero_images/laptop_css.jpg");
+  filter: blur(4px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 4;
 }
 
 .landing-content {
@@ -333,6 +364,8 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;*/
+  position: relative;
+  z-index: 10;
 }
 
 .landing-title {
@@ -346,7 +379,7 @@ footer {
   font-size: 1.9rem;
   letter-spacing: 15px;
   margin: 3rem 0 0 0;
-  color: var(--accent-color);
+  color: var(--secondary-text-color);
 }
 
 .landing-calltoaction {
@@ -375,7 +408,8 @@ footer {
   width: 100%;
   position: absolute;
   bottom: 0;
-  margin-bottom: 60px;
+  margin-bottom: 90px;
+  z-index: 10;
 }
 
 .landing-nav-item {
@@ -383,7 +417,7 @@ footer {
   color: white;
   cursor: pointer;
   position: relative;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .landing-nav-item .border {
@@ -415,6 +449,7 @@ footer {
   overflow: auto;
   width: 100%;
   position: relative;
+  z-index: 15;
 }
 
 .work-item {
@@ -485,6 +520,7 @@ footer {
   align-items: center;
   font-size: 1.4rem;
   color: var(--primary-color);
+  z-index: 10;
 }
 
 .back-to-top:hover {
@@ -520,8 +556,9 @@ footer {
   max-height: 100%;
   background-color: var(--secondary-color);
   z-index: 1000;
-
 }
+
+
 
 .back-button {
   cursor: pointer;
@@ -592,4 +629,101 @@ footer {
   font-size: 1.6rem;
   color: var(--accent-color);
   opacity: 0.6;
+}
+
+.projects {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  position: relative;
+  z-index: 9;
+  background: var(--primary-color);
+
+}
+
+.project-container {
+  flex: 6;
+}
+
+.project-tiles {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh;
+  flex-direction: column;
+  background-color: rgba(0,0,0);
+  justify-content: space-between
+} 
+
+.project-tile {
+  /* width: 150px; */
+  /* height: 150px; */
+  position: relative;
+  display: flex;
+  align-items: flex-end
+}
+
+.project-tile:hover {
+  position: relative;
+  transform: scale(1.2);
+  transition: 300ms;
+  z-index: 3;
+  box-shadow:  1px 1px 4px 3px lightgrey;
+}
+
+.project-tile.selected {
+  position: relative;
+  transform: scale(1.2);
+  transition: 300ms;
+  z-index: 3;
+  box-shadow:  1px 1px 4px 3px lightgrey;
+}
+
+/* .project-tile::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+} */
+
+.project-tile img {
+  width: 150px;
+  height: 150px;
+}
+
+@media screen and (max-width: 480px) {
+
+  .main-content {
+    overflow: hidden;
+  }
+
+  .hidden-left {
+    width: 100%;
+    padding: 1.7rem;
+  }
+  .hidden-right {
+    width: 100%;
+    padding: 1.7rem;
+  }
+
+  section {
+    padding: 0;
+  }
+
+  .back-button-right {
+    left: 1rem;
+    top: 1rem;
+  }
+
+  .about-text {
+    margin: 0;
+    margin-top: -9rem;
+    font-size: 1.2rem; 
+  }
+
+  .project-tiles {
+    display: none;
+  }
 }

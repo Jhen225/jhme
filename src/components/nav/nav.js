@@ -9,7 +9,7 @@ const Nav = props => {
   }, [])
   return (
     <div className="landing-nav">
-      <LandingNavItem
+      <LandingNavItem delayFactor={0}
         pose={loading ? "exit" : "enter"}
         id="contact-tag"
         className="landing-nav-item"
@@ -20,7 +20,7 @@ const Nav = props => {
           <div className="border-color" />
         </span> */}
       </LandingNavItem>
-      <LandingNavItem
+      <LandingNavItem delayFactor={1}
         id="work-tag"
         pose={loading ? "exit" : "enter"}
         className="landing-nav-item"
@@ -31,7 +31,7 @@ const Nav = props => {
           <div className="border-color" />
         </span> */}
       </LandingNavItem>
-      <LandingNavItem
+      <LandingNavItem delayFactor={2}
         id="about-tag"
         pose={loading ? "exit" : "enter"}
         className="landing-nav-item"

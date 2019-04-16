@@ -1,4 +1,4 @@
-import { TOGGLE_OPEN_CONTACT, TOGGLE_OPEN_ABOUT } from '../actions/types';
+import { TOGGLE_OPEN_CONTACT, TOGGLE_OPEN_ABOUT, SET_PAGE_LOADED } from '../actions/types';
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -11,6 +11,11 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 openAbout: !state.openAbout
+            }
+        case SET_PAGE_LOADED:
+            return {
+                ...state,
+                loading: false
             }
         default:
             return state;

@@ -1,6 +1,6 @@
 import posed from "react-pose";
 
-export const Subtext = posed.p({
+export const Subtext = posed.section({
   open: { opacity: 1 },
   closed: { opacity: 0 }
 });
@@ -46,16 +46,68 @@ export const InputContainer = posed.div({
   closed: { y: 20, opacity: 0 }
 });
 
-export const LandingNavItem = posed.a({
-  hoverable: true,
-  init: { opacity: .7, scale: 1, letterSpacing: '0px' },
-  hover: { opacity: 1, scale: 1.3, letterSpacing: '5px' },
+// export const LandingTitle = posed.h3({
+//   enter: {
+//     opacity: 0.7,
+//     y: 0,
+//     transition: {
+//       duration: 600
+//     },
+//     exit: {
+//       opacity: 0,
+//       y: -400,
+//       transition: {
+//         duration: 600
+//       }
+//     }
+//   }
+// });
+
+export const LandingTitle = posed.h3({
   enter: {
-    opacity: .7,
+    opacity: 1,
     y: 0,
     transition: {
-      duration: 600
+      duration: 400,
     }
+  },
+  exit: {
+    opacity: 0,
+    y: -100,
+    transition: {
+      duration: 400
+    }
+  }
+});
+
+export const LandingSubtitle = posed.h2({
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: 600,
+      delay: 100
+    }
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 600,
+      delay: 300
+    }
+  }
+});
+
+export const LandingNavItem = posed.a({
+  hoverable: true,
+  init: { opacity: 0.7, scale: 1, y: 0 },
+  hover: { opacity: 1, scale: 1.3, y: -10 },
+  enter: {
+    opacity: 0.7,
+    y: 0,
+    transition: ({ delayFactor }) => ({
+      duration: 700,
+      delay: (delayFactor * 200) + 600 
+    })
   },
   exit: {
     opacity: 0,
@@ -78,14 +130,14 @@ export const SubmitButton = posed.button({
 
 export const CloseButton = posed.div({
   hoverable: true,
-  init: {scale: 1, rotate: 0, opacity: .6},
-  hover: {scale: 1.1, rotate: 360, opacity: 1}
-})
+  init: { scale: 1, rotate: 0, opacity: 0.6 },
+  hover: { scale: 1.1, rotate: 360, opacity: 1 }
+});
 
 export const BackToTop = posed.a({
   hoverable: true,
   init: {
-    scale: .8,
+    scale: 0.8,
     rotate: 0,
     transition: {
       duration: 200

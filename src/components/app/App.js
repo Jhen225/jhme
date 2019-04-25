@@ -65,7 +65,7 @@ const AppContent = () => {
       delay = 800;
     }
 
-    let el = document.querySelector(".projects");
+    let el = document.querySelector(".projects-section");
     setTimeout(() => {
       window.scrollTo({
         top: el.offsetTop,

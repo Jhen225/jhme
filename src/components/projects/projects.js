@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from "react";
+import posed, { PoseGroup } from "react-pose";
 import Store from "../../state";
 import { BackToTop } from "../../animations";
+import FlipMove from 'react-flip-move';
 import Filters from "./filters";
+
+const Project = posed.div({
+  enter: {
+    opacity: 1,
+    // transition: {duration: 1000}
+  },
+  exit: {
+    opacity: 0,
+    // transition: {duration: 1000}
+  }
+});
 
 function Projects(props) {
   const [state, dispatch] = Store.useStore();
@@ -11,9 +24,9 @@ function Projects(props) {
 
   let projectContents = filteredProjects.map((project, i) => {
     return (
-      <div className="project" key={i} data-index={i}>
+      <Project className="project" key={i} data-index={i}>
         {project.name}
-      </div>
+      </Project>
     );
   });
 
@@ -25,7 +38,20 @@ function Projects(props) {
           projects={projects}
           setFilteredProjects={setFilteredProjects}
         />
-        <div className="projects">{projectContents}</div>
+        <FlipMove className="projects"
+        staggerDelayBy={50}
+        enterAnimation="fade"
+        leaveAnimation="fade">
+          {
+            filteredProjects.map((project, i) => {
+              return (
+                <Project className="project" key={i} data-index={i}>
+                  {project.name}
+                </Project>
+              );
+            })
+          }
+        </FlipMove>
       </div>
       <BackToTop className="back-to-top" onClick={scrollToTop}>
         <i className="fa fa-chevron-up" />

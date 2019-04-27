@@ -651,13 +651,18 @@ footer {
 .projects {
   display: flex;
   flex-wrap: wrap;
-  width: 50%;
-
+  width: 70%;
   margin-top: 150px;
 }
 
 .project {
   width: 25%;
+  height: 175px;
+  transition: 300ms;
+}
+
+.project:hover { 
+  background: var(--secondary-color)
 }
 
 .project-tiles {
